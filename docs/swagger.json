@@ -1,0 +1,327 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Carbon Cell Backend Assessment",
+    "description": "API for Assessment Task",
+    "contact": {
+      "name": "API Support",
+      "email": "stephen_ibitoye@yahoo.com"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Sign-up",
+      "description": "User registration api"
+    },
+    {
+      "name": "Sign-in",
+      "description": "User log-in api"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {},
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/auth/sign-up": {
+      "post": {
+        "tags": [
+          "Sign-up"
+        ],
+        "summary": "User Registration.",
+        "description": "This Api allows user to create an account.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user registration",
+            "required": true,
+            "description": "register user",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User successfully created",
+            "schema": {
+              "$ref": "#/definitions/200"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/sign-in": {
+      "post": {
+        "tags": [
+          "Sign-in"
+        ],
+        "summary": "User Log-in.",
+        "description": "This Api allows user to log-in.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user log-in",
+            "required": true,
+            "description": "Log-in user to a particular account",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User successfully Log-in",
+            "schema": {
+              "$ref": "#/definitions/200"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/404"
+            }
+          },
+          "500": {
+            "description": "Server Issue",
+            "schema": {
+              "$ref": "#/definitions/500"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/message": {
+      "get": {
+        "tags": [
+          "Send Message"
+        ],
+        "summary": "Protected route for sending message.",
+        "description": "This Api allows user to send message",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message sent successfully",
+            "schema": {
+              "$ref": "#/definitions/200"
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "$ref": "#/definitions/404"
+            }
+          },
+          "500": {
+            "description": "Server Issue",
+            "schema": {
+              "$ref": "#/definitions/500"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/data-retrival/": {
+      "get": {
+        "tags": [
+          "Data Retrival"
+        ],
+        "summary": "Retrieve Data from a public api.",
+        "description": "The API allows you to filter data from a public api",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "required": false,
+            "description": "Category to filter public data",
+            "in": "query",
+            "type": "number"
+          },
+          {
+            "name": "page",
+            "required": false,
+            "description": "page to filter public data",
+            "in": "query",
+            "type": "number"
+          },
+          {
+            "name": "size",
+            "required": false,
+            "description": "size to filter public data",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "data retrieved successfully",
+            "schema": {
+              "$ref": "#/definitions/200"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/web3/fetch-balance": {
+      "post": {
+        "tags": [
+          "Fetch Balance"
+        ],
+        "summary": "Fetching Ethereum Balance.",
+        "description": "This Api allows user to fetch ethereum balance based on a specific address",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "fetch balance",
+            "required": true,
+            "description": "fetch balance",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/FetchBalance"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Balance fetched successfully",
+            "schema": {
+              "$ref": "#/definitions/200"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "200": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "200"
+        },
+        "message": {
+          "type": "string",
+          "example": "ok"
+        }
+      }
+    },
+    "400": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "400"
+        },
+        "message": {
+          "type": "string",
+          "example": "Bad Request"
+        }
+      }
+    },
+    "403": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "403"
+        },
+        "message": {
+          "type": "string",
+          "example": "Forbidden"
+        }
+      }
+    },
+    "404": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "404"
+        },
+        "message": {
+          "type": "string",
+          "example": "Not found"
+        }
+      }
+    },
+    "500": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "500"
+        },
+        "message": {
+          "type": "string",
+          "example": "Internal Server Error"
+        }
+      }
+    },
+    "FetchBalance": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "example": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "string"
+        },
+        "password": {
+          "type": "string",
+          "example": "string"
+        }
+      }
+    }
+  }
+}
