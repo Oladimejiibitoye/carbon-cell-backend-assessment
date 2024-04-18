@@ -9,7 +9,7 @@
       "email": "stephen_ibitoye@yahoo.com"
     }
   },
-  "host": "localhost:5000",
+  "host": "https://carbon-cell-backend-assessment-245a.onrender.com",
   "basePath": "/",
   "tags": [
     {

@@ -2,13 +2,13 @@
 const DEFAULT_PORT = 5000;
 const DEFAULT_MONGO_URI = "mongodb://localhost:27017/pemvy8n";
 const DEFAULT_AUTH_SECRET = "development-secret";
-const DEFAULT_BASE_URL = "http://localhost:3000";
+const DEFAULT_BASE_URL = "https://carbon-cell-backend-assessment-245a.onrender.com";
 const DEFAULT_ACCESS_TOKEN_SECRET = "Pn@4Ie#1W%Rm9Gk&7Qy2Ov^3U";
 const DEFAULT_ACCESS_TOKEN_EXPIRES_IN = "1h";
 const DEFAULT_ACCESS_TOKEN_NOT_BEFORE = "0";
 const DEFAULT_JWT_ALGORITHM = "HS256";
-const DEFAULT_JWT_AUDIENCE = "ihealthwellness.dev";
-const DEFAULT_JWT_ISSUER = "ihealthwellness.api";
+const DEFAULT_JWT_AUDIENCE = "carboncell.dev";
+const DEFAULT_JWT_ISSUER = "carboncell.api";
 const DEFAULT_ETHEREUM_NODE_URL = "https://mainnet.infura.io/v3/your_infura_project_id"
 
 

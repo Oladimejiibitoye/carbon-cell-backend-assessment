@@ -1,4 +1,4 @@
-const {StatusCodes} = require("http-status-codes");
+const { BASE_URL } = require("../environment/config");
 
 /* Swagger configuration */
 const options = {
@@ -22,7 +22,7 @@ info: {
       'email': 'stephen_ibitoye@yahoo.com'
   },
 },
-host: "localhost:5000",
+host: BASE_URL,
 basePath: '/',  // by default: '/'
 schemes: ['http'],   // by default: ['http']
 consumes: ['application/json'],  // by default: ['application/json']
